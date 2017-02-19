@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Omev";
+}
+
+<div class="jumbotron text-center margin-top-container" style="background-color:transparent;">
+    <img src="~/Images/Logo_blanco.png" class="" />
+</div>
+
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="float: none;margin: 0 auto;background-color: #FFFFFF;">
+        <section id="loginForm">
+            <div class="form-group text-center hidden-xs hidden-sm" style="padding: 2%;">
+                <span class="glyphicon glyphicon-user" style="color:#558F00;font-weight:bold;"></span> Ingrese su usuario y contrase&ntilde;a
+            </div>
+            @if (!ViewBag.login)
+            {
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Usuario y/o clave inv&aacute;lida.
+                </div>
+            }
+            @using (Html.BeginForm("LoginOmev", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group no-margin-bottom">
+                    <input type="email" class="form-control full-width no-border-radius" id="user" name="user" placeholder="Usuario">
+                </div>
+                <div class="form-group input-group">
+                    <input type="password" class="form-control full-width no-border-radius" id="password" name="password" placeholder="Contraseña" style="border-right:none;">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit" style="background-color:#fff;color:#558F00;border-left:none;border-right:none;"><span style="font-size:10px;">¿Olvidaste tu contrase&ntilde;a?</span></button>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <img src="~/Images/boton_login.png" style="padding-bottom: 2%;cursor:pointer;" onclick="$(this).closest('form').submit();"/>
+                </div>
+                <div class="form-group text-center" style="padding-bottom: 2%;font-size:10px;">
+                    ¿Eres nuevo usuario? <span style="color:#558F00;"> Crea tu cuenta</span>
+                </div>
+            }
+        </section>
+    </div>
+</div>

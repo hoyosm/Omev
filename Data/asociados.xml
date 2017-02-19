@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<catalog>
+   <asociado id="1">
+      <tipodoc>CC</tipodoc>
+      <documento>123456</documento>
+      <nombre>pedro</nombre>
+      <apellido>perez</apellido>
+	    <profesion>contaduria</profesion>
+	    <ocupacion>contador</ocupacion>
+	    <fechnacimiento>03/08/1987</fechnacimiento>
+	    <fechaingreso>04/12/2008</fechaingreso>
+	    <fechaestado>05/12/2008</fechaestado>
+	    <estado>activo</estado>
+	    <cuoatavencida>1</cuoatavencida>
+	    <usuario>pedrop</usuario>
+	    <sexo>m</sexo>
+	    <estracto>3</estracto>
+	    <estadocivil>soltero</estadocivil>
+	    <email>pedrop@gmail.com</email>
+	    <direccion>calle 13 #23-45</direccion>	  
+   </asociado>
+    <asociado id="2">
+      <tipodoc>CC</tipodoc>
+      <documento>098766</documento>
+      <nombre>camilo</nombre>
+      <apellido>rodriguez</apellido>
+	    <profesion>ingeniero</profesion>
+	    <ocupacion>ingeniero</ocupacion>
+	    <fechnacimiento>04/08/1987</fechnacimiento>
+	    <fechaingreso>05/12/2008</fechaingreso>
+	    <fechaestado>06/12/2008</fechaestado>
+	    <estado>activo</estado>
+	    <cuoatavencida>0</cuoatavencida>
+	    <usuario>camilor</usuario>
+	    <sexo>m</sexo>
+	    <estracto>4</estracto>
+	    <estadocivil>casado</estadocivil>
+	    <email>camilor@gmail.com</email>
+	    <direccion>calle 21 #13-45</direccion>	  
+   </asociado>
+   <asociado id="3">
+      <tipodoc>CC</tipodoc>
+      <documento>34567</documento>
+      <nombre>santiago</nombre>
+      <apellido>salazar</apellido>
+	  <profesion>admnistrador</profesion>
+	  <ocupacion>admnistrador</ocupacion>
+	  <fechnacimiento>04/08/1987</fechnacimiento>
+	  <fechaingreso>05/12/2008</fechaingreso>
+	  <fechaestado>06/12/2008</fechaestado>
+	  <estado>activo</estado>
+	  <cuoatavencida>0</cuoatavencida>
+	  <usuario>santiagos</usuario>
+	  <sexo>m</sexo>
+	  <estracto>4</estracto>
+	  <estadocivil>casado</estadocivil>
+	  <email>santiagos@gmail.com</email>
+	  <direccion>calle 21 #13-45</direccion>	  
+   </asociado>
+    <asociado id="4">
+      <tipodoc>CC</tipodoc>
+      <documento>765678</documento>
+      <nombre>sandra</nombre>
+      <apellido>lopez</apellido>
+	  <profesion>admnistradora</profesion>
+	  <ocupacion>admnistradora</ocupacion>
+	  <fechnacimiento>04/08/1987</fechnacimiento>
+	  <fechaingreso>05/12/2008</fechaingreso>
+	  <fechaestado>06/12/2008</fechaestado>
+	  <estado>activo</estado>
+	  <cuoatavencida>0</cuoatavencida>
+	  <usuario>sandralopez</usuario>
+	  <sexo>f</sexo>
+	  <estracto>4</estracto>
+	  <estadocivil>casada</estadocivil>
+	  <email>sandralopez@gmail.com</email>
+	  <direccion>calle 43 #13-45</direccion>	  
+   </asociado>
+   <asociado id="5">
+      <tipodoc>CC</tipodoc>
+      <documento>7655775</documento>
+      <nombre>diana</nombre>
+      <apellido>roldan</apellido>
+	  <profesion>oficios varios</profesion>
+	  <ocupacion>oficios varios</ocupacion>
+	  <fechnacimiento>04/08/1987</fechnacimiento>
+	  <fechaingreso>05/12/2008</fechaingreso>
+	  <fechaestado>06/12/2008</fechaestado>
+	  <estado>activo</estado>
+	  <cuoatavencida>0</cuoatavencida>
+	  <usuario>dianaroldan</usuario>
+	  <sexo>f</sexo>
+	  <estracto>4</estracto>
+	  <estadocivil>casada</estadocivil>
+	  <email>dianaroldan@gmail.com</email>
+	  <direccion>calle 20 #13-45</direccion>	  
+   </asociado>
+</catalog>

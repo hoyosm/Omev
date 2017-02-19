@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Mis Referidos";
+}
+
+
+<style>
+    body {
+        background-image: none;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+</style>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 font-associated-bar">
+        <a href="~/Associated/New"><span>Registro Asociado</span></a> |
+        <a href="~/Associated/Leaflet"><span>Prospectos</span></a> |
+        <span>Mis Referidos</span>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ">
+        @*<img class="btn-new-associated-title" alt="Referidos" src="~/Images/BTN-MIS-REFERIDOS.png" data-toggle="modal" data-target="#myModal" />*@
+        <h3 data-toggle="modal" data-target="#myModal">Mis Referidos</h3>
+    </div>
+
+    <div class="table-responsive" style="margin-top:5%;">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th>Nro.</th>
+                <th>Nombre Referido</th>
+                <th>Fecha Aprobaci&oacute;n</th>
+                <th>Asesor</th>
+                </tr>
+            </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Pepito Perez</td>
+                    <td>01/11/2016</td>
+                    <td>Jos&eacute; Pekerman</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Maria Jimenez</td>
+                    <td>01/11/2016</td>
+                    <td>Jos&eacute; Pekerman</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Federico Lopez</td>
+                    <td>10/01/2017</td>
+                    <td>Jos&eacute; Pekerman</td>
+                </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Daniela Rodriguez</td>
+                        <td>10/01/2017</td>
+                        <td>Jos&eacute; Pekerman</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header alert alert-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">&nbsp;</h4>
+            </div>
+            <div class="modal-body text-center">
+                @*<img src="~/Images/premio.png" class="you-win-img" alt="Has Ganado!"/>*@
+                <h1 style="margin-top:0;">
+                    <span class="glyphicon glyphicon-star-empty" style="color:#F5F10A;"></span>
+                    <span class="glyphicon glyphicon-star-empty" style="color:#F5F10A;"></span>
+                    <span class="glyphicon glyphicon-star-empty" style="color:#F5F10A;"></span>
+                    <br />Felicitaciones Ganaste Bonificación por <span style="color:#558F00"><b>$100.000</b></span>
+                </h1>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+</script>
+

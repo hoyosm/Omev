@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+}
+<style>
+    /*body
+    {
+        background-image: none;
+    }*/
+    .container
+    {
+        max-width: 100%;
+    }
+</style>
+<div class="margin-top-container col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="background-color:#ffffff;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:2%;">
+        <img alt="profile" class="img-circle profile-img" src="~/Images/userdemo.jpg" />
+        <img src="~/Images/BONOS.png" class="bonus-img" />
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:2%;">
+        <span>Manuel Rosero</span><br />
+        <a onclick="location.href ='@Url.Action("Profile", "Associated")'">Editar perfil</a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:2%;">
+        <img src="~/Images/Icono-2.png" class="icon-menu-img" onclick="location.href ='@Url.Action("New", "Associated")'" />
+        <img src="~/Images/Icono-5.png" class="icon-menu-img" onclick="location.href ='@Url.Action("Credit", "BankProducts")'" />
+    </div>
+    
+</div>

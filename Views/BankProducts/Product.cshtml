@@ -1,0 +1,82 @@
+﻿@using WebApplication1.Models
+@model BankProductsModel
+@{
+    ViewBag.Title = "Productos";
+}
+
+<style>
+    body {
+        background-image: none;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 font-associated-bar">
+        <a href="~/BankProducts/Credit"><span>Cr&eacute;dito</span></a> |
+        <span>Solicitud de Productos</span> |
+        <a href="~/BankProducts/Pap"><span>PAP</span></a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ">
+        @*<img class="btn-new-associated-title" alt="Simulador de Crédito" src="~/Images/Solicitar-Productos.png" />*@
+        <h3>Solicitud de Productos</h3>
+    </div>
+
+    @using (Html.BeginForm("BankProducts", "Simulate", "", FormMethod.Post, new { @class = "form-horizontal margin-top-2pt", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            
+            <div class="col-md-7 col-lg-7 col-xs-9 col-sm-9">
+                <div class="checkbox">
+                    <label><input id="chk_1" type="checkbox" value="">Cr&eacute;dito Libre Inversi&oacute;n</label>
+                </div>
+                <div class="checkbox">
+                    <label><input id="chk_2" type="checkbox" value="">Tarjeta de Cr&eacute;dito</label>
+                </div>
+                <div class="checkbox">
+                    <label><input id="chk_3" type="checkbox" value="">Cupo Activo</label>
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-group text-center">
+            @*<img src="~/Images/boton_login.png" style="padding-bottom: 2%;cursor:pointer;" onclick="$(this).closest('form').submit();" />*@
+            <img id="btn_register" alt="Registrar" src="~/Images/btn-solicitar.png" class="btn-new-associated" />
+        </div>
+    }
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header alert alert-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">&nbsp;</h4>
+            </div>
+            <div class="modal-body text-center">
+                Se envi&oacute; la solicitud de sus productos de forma correcta.<br />En breve un asesor se comunicar&aacute; con usted.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        $('#btn_register').on('click', function ()
+        {
+            $('#chk_1').attr('checked', false);
+            $('#chk_2').attr('checked', false);
+            $('#chk_3').attr('checked', false);
+            $('#myModal').modal('show');
+        });
+    });
+</script>

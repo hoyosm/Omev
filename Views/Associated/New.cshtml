@@ -1,0 +1,157 @@
+﻿@using WebApplication1.Models
+@model AssociatedModels
+@{
+    ViewBag.Title = "Registro Nuevos Asociados";
+}
+
+<style>
+
+    body{
+        background-image: none;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+    
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 font-associated-bar">
+        <span>Registro Asociados</span> |
+        <a href="~/Associated/Leaflet"><span>Prospectos</span></a> |
+        <a href="~/Associated/Referred"><span>Mis Referidos</span></a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ">
+        @*<img class="btn-new-associated-title" alt="Registro nuevo asociado" src="~/Images/BTN-RNA.png" />*@
+        <h3>Nuevo Asociado</h3>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center font-associated-cam" >
+        <img id="btn_scan" class="icon-btn-camera " src="~/Images/BTN-CAMARA.png"/>
+        <span>Escanear C&oacute;digo de Barras C&eacute;dula</span>
+    </div>
+    @*<section id="associatedForm">*@
+        
+        @using (Html.BeginForm("Associated", "Home", "", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.name, "Nombre", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.name, new { @class = "form-control", id = "text_name" })
+                    @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.document, "No. Cédula", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.document, new { @class = "form-control", id = "text_document" })
+                    @Html.ValidationMessageFor(m => m.document, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.document, "Nivel Académico", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    <select id="select_academy" name="select_academy" class="form-control" >
+                        <option value="TC">Técnico</option>
+                        <option value="TG">Tecnólgo</option>
+                        <option value="P" selected>Profesional</option>
+                        <option value="O">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.doctype, "Fecha Nac.", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.doctype, new { @class = "form-control", id = "text_dateb" })
+                    @Html.ValidationMessageFor(m => m.doctype, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.email, "Correo", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control", id = "text_email" })
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.phone_number, "Celular", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.phone_number, new { @class = "form-control", id = "text_phone" })
+                    @Html.ValidationMessageFor(m => m.phone_number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group text-center">
+                @*<img src="~/Images/boton_login.png" style="padding-bottom: 2%;cursor:pointer;" onclick="$(this).closest('form').submit();" />*@
+                <img id="btn_create" alt="Registrar" src="~/Images/BTN-REGISTRAR.png" class="btn-new-associated" />
+            </div>
+        }
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header alert alert-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registro</h4>
+            </div>
+            <div class="modal-body text-center">
+                <span id="msg_reg">El referido se registr&oacute; de forma correcta </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $('#btn_scan').on('click', function ()
+        {
+            $('#text_name').val("Margarita Hoyos");
+            $('#text_document').val("1130562525");
+            $('#text_dateb').val("05/08/1990");
+        });
+
+        $('#btn_create').on('click', function () {
+
+            $.ajax({
+                type: "GET",
+                url: window.location.origin + "/Data/listanegra.xml",
+                dataType: "xml",
+                success: function (xml) {
+
+                    // Parse the xml file and get data
+                    //var xmlDoc = $.parseXML(xml),
+                       // $xml = $(xmlDoc);
+                    $(xml).find("listanegra").each(function () {
+                        
+                        var find = $(this).find('encontrado').text();
+                        if(find === 'S')
+                        {
+                            $('#msg_reg').html("El prospecto no cumple con los requisitos exigidos.");
+                            $(".modal-header").removeClass("alert-success");
+                            $(".modal-header").addClass("alert-danger");
+                        } else
+                        {
+                            $('#msg_reg').html("El referido cumple con las validaciones mínimas requeridas.<br />Se registró de forma correcta.");
+                            $(".modal-header").removeClass("alert-danger");
+                            $(".modal-header").addClass("alert-success");
+                        }
+                        
+                    });
+
+                    $('#myModal').modal('show');
+                    $('#text_name').val("");
+                    $('#text_document').val("");
+                    $('#text_dateb').val("");
+                    $('#text_email').val("");
+                    $('#text_phone').val("");
+                }
+            });
+        });
+    });
+</script>

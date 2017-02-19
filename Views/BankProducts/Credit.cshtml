@@ -1,0 +1,105 @@
+﻿@using WebApplication1.Models
+@model BankProductsModel
+@{
+    ViewBag.Title = "Simular/Solicitar Créditos";
+}
+
+<style>
+    body {
+        background-image: none;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 font-associated-bar">
+        <span>Cr&eacute;dito</span> |
+        <a href="~/BankProducts/Product"><span>Solicitud de Productos</span></a> |
+        <a href="~/Associated/Referred"><span>PAP</span></a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ">
+        @*<img class="btn-new-associated-title" alt="Simulador de Crédito" src="~/Images/btn-sdc.png" />*@
+        <h3>Simulador de Cr&eacute;dito</h3>
+    </div>
+
+    @using (Html.BeginForm("BankProducts", "Simulate", "", FormMethod.Post, new { @class = "form-horizontal margin-top-2pt", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.document, "No. Cédula", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.document, new { @class = "form-control", id = "text_document" })
+                    @Html.ValidationMessageFor(m => m.document, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.incomes, "Vr. Ingresos", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.incomes, new { @class = "form-control", id = "text_incomes" })
+                    @Html.ValidationMessageFor(m => m.incomes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.number_fee, "Cuotas", new { @class = "col-md-5 col-lg-5 col-xs-4 col-sm-4 control-label font-label-associated" })
+                <div class="col-md-7 col-lg-7 col-xs-8 col-sm-8">
+                    @Html.TextBoxFor(m => m.number_fee, new { @class = "form-control", id = "text_fess" })
+                    @Html.ValidationMessageFor(m => m.number_fee, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <img id="btn_solicitar" alt="Registrar" src="~/Images/btn-simular.png" class="btn-new-test-credit"/>
+            </div>
+    }
+    <div id="result" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left text-success hidden">
+        <span>Monto Aprobado: $2.000.000</span><br />
+        <span>N&uacute;mero de Cuotas: 36</span><br />
+        <span>Tasa de Inter&eacute;s: 0.9%</span><br />
+        <span>Cuota Mensual: $160.000</span>
+        
+        <div class="form-group text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <img id="btn_sendrequest" alt="Registrar" src="~/Images/btn-solicitar.png" class="btn-new-associated" />
+        </div>
+    </div>
+
+    @*</section>*@
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header alert alert-success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">&nbsp;</h4>
+            </div>
+            <div class="modal-body text-center">
+                Se envi&oacute; la solicitud de cr&eacute;dito.<br />En breve un asesor se comunicar&aacute; con usted para continuar el proceso.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        
+        $('#text_document').val("1130562525");
+        $('#text_incomes').val("$3.000.000");
+        $('#text_fess').val("24");
+
+        $('#btn_solicitar').on('click', function ()
+        {
+            $('#result').removeClass("hidden");
+        });
+
+        $('#btn_sendrequest').on('click', function () {
+            $('#result').addClass("hidden");
+            $('#myModal').modal('show');
+        });
+    });
+</script>
